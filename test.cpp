@@ -70,13 +70,22 @@ int main(int argc, char* argv[]) {
    }
    sqlite3_close(db);
 
-int allergen;
+   string allergen="";
    //Getting data from file
    string fromFile;
    ifstream file;
    file.open("file.txt");
+   file >> fromFile;
    file.close();
-   cout << fromFile;
+   for (int i = fromFile.size() - 9; i < fromFile.size(); i++){
+      if(isdigit(fromFile[i])){
+          allergen.append(1,fromFile[i]);
+      }
+   }
+   cout << allergen;
+
+
+   
 return 0;
 }
 
